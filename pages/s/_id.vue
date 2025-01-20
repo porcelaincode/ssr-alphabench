@@ -43,17 +43,20 @@ export default {
       title,
       meta: [
         // Open Graph
-        { hid: 'og:title', property: 'og:title', content: title },
-        { hid: 'og:description', property: 'og:description', content: description },
-        { hid: 'og:image', property: 'og:image', content: image },
-        { hid: 'og:url', property: 'og:url', content: url },
-        { hid: 'og:type', property: 'og:type', content: 'website' },
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        // Open Graph
+        { name: 'og:title', content: title },
+        { name: 'og:description', content: description },
+        { name: 'og:image', content: image },
+        { name: 'og:url', content: url },
+        { name: 'og:type', content: 'website' },
         
         // Twitter Card
-        { hid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' },
-        { hid: 'twitter:title', name: 'twitter:title', content: title },
-        { hid: 'twitter:description', name: 'twitter:description', content: description },
-        { hid: 'twitter:image', name: 'twitter:image', content: image }
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:title', content: title },
+        { name: 'twitter:description', content: description },
+        { name: 'twitter:image', content: image }
       ]
     }
   },
