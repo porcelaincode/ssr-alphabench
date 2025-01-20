@@ -1,10 +1,10 @@
 <template>
   <div class="redirect-container">
     <div v-if="error" class="error-message">
-      {{ error }}
+      <span>{{ error }}</span>
     </div>
     <div v-else class="redirect-message">
-      Redirecting to AlphaBench...
+      <span>Redirecting to AlphaBench...</span>
     </div>
   </div>
 </template>
@@ -18,10 +18,10 @@ export default {
       const backtest = await $axios.$get(`/backtests/s/${params.id}`)
       return { backtest }
     } catch (err) {
-      error({ 
-        statusCode: 404, 
-        message: 'The requested backtest data could not be found.'
-      })
+      return {
+        error: 'The requested backtest data could not be found.',
+        backtest: null
+      }
     }
   },
 
