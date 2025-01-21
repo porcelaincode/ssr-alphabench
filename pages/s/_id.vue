@@ -18,6 +18,7 @@ export default {
       const backtest = await $axios.$get(`/backtests/s/${params.id}`)
       return { backtest }
     } catch (err) {
+      console.log(err)
       return {
         error: 'The requested backtest data could not be found.',
         backtest: null
