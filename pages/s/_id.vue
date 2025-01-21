@@ -1,5 +1,11 @@
 <template>
   <div class="redirect-container">
+    <div v-if="error" class="error-message">
+      <span>{{ error }}</span>
+    </div>
+    <div v-else class="redirect-message">
+      <span>Redirecting to AlphaBench...</span>
+    </div>
   </div>
 </template>
 
@@ -12,10 +18,10 @@ export default {
       const backtest = await $axios.$get(`/backtests/s/${params.id}`)
       return { backtest }
     } catch (err) {
-      console.log(err);
-      setTimeout(() => {
-        window.location.href = `${this.$config.mainAppURL}`
-      }, 1500)
+      return {
+        error: 'The requested backtest data could not be found.',
+        backtest: null
+      }
     }
   },
 
@@ -73,5 +79,15 @@ export default {
   align-items: center;
   text-align: center;
   padding: 20px;
+}
+
+.redirect-message {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.error-message {
+  color: #dc3545;
+  font-size: 1.2rem;
 }
 </style> 
