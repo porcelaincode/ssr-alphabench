@@ -20,6 +20,10 @@ jobs:
                   username: ${{ secrets.EC2_USER }}
                   key: ${{ secrets.EC2_SSH_KEY }}
                   script: |
+                      # Load NVM
+                      export NVM_DIR="$HOME/.nvm"
+                      [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
                       cd ${{ secrets.EC2_APP_PATH }}
                       git stash
                       git pull origin main
