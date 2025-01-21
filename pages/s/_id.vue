@@ -1,8 +1,5 @@
 <template>
   <div class="redirect-container">
-    <div class="redirect-message">
-      <span>Redirecting to AlphaBench...</span>
-    </div>
   </div>
 </template>
 
@@ -76,15 +73,5 @@ export default {
   align-items: center;
   text-align: center;
   padding: 20px;
-}
-
-.redirect-message {
-  font-size: 1.2rem;
-  color: #666;
-}
-
-.error-message {
-  color: #dc3545;
-  font-size: 1.2rem;
 }
 </style> 
